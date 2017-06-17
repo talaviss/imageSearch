@@ -1,19 +1,19 @@
-export default function() {
-  return [
-    {
-      id: 1,
-      url: 'http://fakeimg.pl/300/',
-      alt: ''
-    },
-    {
-      id: 2,
-      url: 'http://fakeimg.pl/300/',
-      alt: ''
-    },
-    {
-      id: 3,
-      url: 'http://fakeimg.pl/300/',
-      alt: ''
-    }
-  ];
+import * as commandActions from '../actions/CommandActions';
+
+const initialState =  {
+  data: []
+};
+
+export default function gifs(state = initialState, action) {
+
+  switch (action.type) {
+
+    case commandActions.REQUEST_IMAGES_DATA_RECEIVED:
+      console.dir(action);
+      return {
+        ...state, data: action.data
+      };
+    default:
+      return state;
+  }
 }

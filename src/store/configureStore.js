@@ -1,11 +1,18 @@
-import { createStore } from 'redux';
+import { createStore, compose, applyMiddleware } from 'redux';
+//import promiseMiddleware from 'redux-promise';
+
+import dataServiceMiddleware from '../middleware/dataService';
+
 import rootReducer from '../reducers';
 
 export default function configureStore(initialState) {
   const store = createStore(
     rootReducer,
     initialState,
-    window.devToolsExtension ? window.devToolsExtension() : undefined
+    compose (
+      applyMiddleware(dataServiceMiddleware),
+      window.devToolsExtension ? window.devToolsExtension() : f => f
+    )
   );
 
   if (module.hot) {

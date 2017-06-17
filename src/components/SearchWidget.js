@@ -3,19 +3,19 @@ import React from 'react';
 class SearchWidget extends React.Component {
     constructor() {
         super();
-        this.state = { term: '' }
+      //  this.state = { term: '' }
         this.handleClick = this.handleClick.bind(this);
     }
 
     onSearchTermChange(term) {
 
-        this.setState({term});
-
+      //  this.setState({term});
+         this.props.onTermChange(term);
     }
 
     handleClick() {
         console.log('i have been clicked!');
-        this.props.onTermChange(this.state.term);
+
     }
 
     render() {
