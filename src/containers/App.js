@@ -1,10 +1,10 @@
 import React from 'react';
-import SearchWidget from './components/SearchWidget';
-import SearchHisotry from './components/SearchHisotry';
+import SearchWidget from '../components/SearchWidget';
+import SearchHisotry from '../components/SearchHisotry';
 
-import ImageList from './components/ImageList';
+import ImageList from '../components/ImageList';
 import Superagent from 'superagent';
-import './styles/App.css';
+import '../styles/App.css';
 
 const key = '9685535eedbb6ad9e9ff36630cd62098';
 const flicker_base = `https://api.flickr.com/services/rest/?api_key=${key}&format=rest&format=json&nojsoncallback=1`;
@@ -27,15 +27,15 @@ class App extends React.Component {
 
     getFlickrPhotoUrl(image, i) {
         return {
-            id: `image.id`,
+            id: image.id,
             url: `https://farm${image.farm}.staticflickr.com/${image.server}/${image.id}_${image.secret}_s.jpg`,
             alt: image.alt
         }
     }
 
-    getPixabayPhotoUrl(image) {
+    getPixabayPhotoUrl(image,i) {
         return {
-            id: image.id,
+            id: image.webformatURL,
             url: image.webformatURL,
             alt: image.tags
         }
