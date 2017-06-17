@@ -8,14 +8,12 @@ class SearchWidget extends React.Component {
     }
 
     onSearchTermChange(term) {
-
-      //  this.setState({term});
-         this.props.onTermChange(term);
+       this.props.onSearchTextChange(term);
     }
 
     handleClick() {
-        console.log('i have been clicked!');
-
+      console.log('i have been clicked!');
+      this.props.onClickSearch();
     }
 
     render() {

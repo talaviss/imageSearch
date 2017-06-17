@@ -1,5 +1,5 @@
 import request from 'superagent';
-import * as commandActions from '../actions/CommandActions';
+import {REQUEST_IMAGES, REQUEST_IMAGES_DATA_ERROR, REQUEST_IMAGES_DATA_RECEIVED }  from '../actions/ActionTypes';
 
 const key = '9685535eedbb6ad9e9ff36630cd62098';
 const flicker_base = `https://api.flickr.com/services/rest/?api_key=${key}&format=rest&format=json&nojsoncallback=1`;
@@ -31,7 +31,7 @@ const dataService = store => next => action => {
   */
   next(action)
   switch (action.type) {
-  case commandActions.REQUEST_IMAGES:
+  case REQUEST_IMAGES:
     /*
     In case we receive an action to send an API request, send the appropriate request
     */
@@ -39,7 +39,7 @@ const dataService = store => next => action => {
       .end((err, res) => {
         if (err) {
           return next({
-            type: commandActions.REQUEST_IMAGES_DATA_ERROR,
+            type: REQUEST_IMAGES_DATA_ERROR,
             err
           })
         }
@@ -52,14 +52,12 @@ const dataService = store => next => action => {
             .end((err, res) => {
               if (err) {
                 return next({
-                  type: commandActions.REQUEST_IMAGES_DATA_ERROR,
+                  type: REQUEST_IMAGES_DATA_ERROR,
                   err
                 })
               }
               if (res && res.status === 200 && res.text) {
                   data.push(...res.body.hits.map(getPixabayPhotoUrl));
-                //  data.append
-                //  console.dir(dataPixabay);
               }
             });
         }
@@ -72,7 +70,7 @@ const dataService = store => next => action => {
         that data was received successfully, along with the parsed data
         */
         next({
-          type: commandActions.REQUEST_IMAGES_DATA_RECEIVED,
+          type: REQUEST_IMAGES_DATA_RECEIVED,
           data
         })
       })
@@ -83,8 +81,6 @@ const dataService = store => next => action => {
   default:
     break
   }
-
 };
-
 
 export default dataService

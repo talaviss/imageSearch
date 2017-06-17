@@ -1,9 +1,7 @@
 import React from 'react';
 import SearchWidget from '../components/SearchWidget';
 import SearchHisotry from '../components/SearchHisotry';
-
 import ImageList from '../components/ImageList';
-//import Superagent from 'superagent';
 import '../styles/App.css';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -18,14 +16,13 @@ class App extends React.Component {
 
     handleSearch(searchText) {
         searchText = searchText.replace(/\s/g, '+');
-        console.log(searchText);
     }
 
     render() {
         return (
           <div>
-
-              <SearchWidget onTermChange={this.props.actions.requestImages} />
+              <SearchWidget onSearchTextChange={this.props.actions.requestSetSearchText}
+                           onClickSearch={this.props.actions.requestImages} />
               <ImageList images={this.props.images} />
               <SearchHisotry />
           </div>
@@ -35,7 +32,8 @@ class App extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    images: state.images.data
+    images: state.images.data,
+    searchText: state.searchText
   };
 }
 

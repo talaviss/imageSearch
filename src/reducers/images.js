@@ -1,14 +1,13 @@
-import * as commandActions from '../actions/CommandActions';
+import {REQUEST_IMAGES_DATA_RECEIVED}  from '../actions/ActionTypes';
 
 const initialState =  {
-  data: []
+  data: [],
 };
 
-export default function gifs(state = initialState, action) {
-
+export default function images(state = initialState, action) {
+ //console.dir(action);
   switch (action.type) {
-
-    case commandActions.REQUEST_IMAGES_DATA_RECEIVED:
+    case REQUEST_IMAGES_DATA_RECEIVED:
       console.dir(action);
       return {
         ...state, data: action.data
