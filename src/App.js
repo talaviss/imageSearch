@@ -1,5 +1,7 @@
 import React from 'react';
 import SearchWidget from './components/SearchWidget';
+import SearchHisotry from './components/SearchHisotry';
+
 import ImageList from './components/ImageList';
 import Superagent from 'superagent';
 import './styles/App.css';
@@ -26,7 +28,7 @@ class App extends React.Component {
     getFlickrPhotoUrl(image, i) {
         return {
             id: `image.id`,
-            url: `https://farm${image.farm}.staticflickr.com/${image.server}/${image.id}_${image.secret}.jpg`,
+            url: `https://farm${image.farm}.staticflickr.com/${image.server}/${image.id}_${image.secret}_s.jpg`,
             alt: image.alt
         }
     }
@@ -46,13 +48,13 @@ class App extends React.Component {
         this.setState({
             images: []
         });
-       Superagent.get(`${flicker_base}&method=flickr.photos.search&text=${searchText}&per_page=1&page=1`)
-
+       Superagent.get(`${flicker_base}&method=flickr.photos.search&text=${searchText}&per_page=10&page=1`)
             .end((err, res) => {
                 if(err){
                     console.error('something went wrong with flicker api', err);
                 }
                 if (res && res.status === 200 && res.body.photos) {
+                    console.dir(res);
                     this.setState({
                         images: this.state.images.concat(res.body.photos.photo.map(this.getFlickrPhotoUrl))
                     });
@@ -62,12 +64,10 @@ class App extends React.Component {
                 }
             });
 
-        console.log(`${pixabay_base}&q=${searchText}`);
+        //console.log(`${pixabay_base}&q=${searchText}`);
         Superagent.get(`${pixabay_base}&q=${searchText}`)
-
-
             .end((err, res) => {
-                console.dir(res);
+                //console.dir(res);
                 if (err || !res.ok) {
                     alert('request to pixabay encountered an error');
                 }
@@ -88,8 +88,10 @@ class App extends React.Component {
     render() {
         return (
           <div>
+
               <SearchWidget onTermChange={this.handleSearch} />
               <ImageList images={this.state.images} />
+              <SearchHisotry />
           </div>
         );
     }

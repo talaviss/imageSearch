@@ -4,6 +4,7 @@ class SearchWidget extends React.Component {
     constructor() {
         super();
         this.state = { term: '' }
+        this.handleClick = this.handleClick.bind(this);
     }
 
     onSearchTermChange(term) {
@@ -12,7 +13,7 @@ class SearchWidget extends React.Component {
 
     }
 
-    performSearch() {
+    handleClick() {
         console.log('i have been clicked!');
         this.props.onTermChange(this.state.term);
     }
@@ -20,8 +21,8 @@ class SearchWidget extends React.Component {
     render() {
         return (
             <div className="search">
-                <input placeholder="Enter text to fetch images"  onChange={event => this.onSearchTermChange(event.target.value)} />
-                <input type="button" onClick={event => this.performSearch()} />
+                <input type="text"  placeholder="Enter text to search images"  onChange={event => this.onSearchTermChange(event.target.value)} />
+                <button className="btn btn-primary" title="Perform search"  onClick={(e) => this.handleClick(e)}>Search</button>
             </div>
         );
     }
