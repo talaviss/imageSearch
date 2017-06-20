@@ -22,6 +22,17 @@ function getPixabayPhotoUrl(image,i) {
     }
 }
 
+function dispatchHistory(store, searchTerm, serviceName, resultsCnt){
+  store.dispatch({
+    type: 'HISTORY_DATA',
+    payload: {
+      searchTerm,
+      serviceName: serviceName,
+      timeOfSearch: new Date().toUTCString(),
+      resultsCount: resultsCnt
+    }});
+}
+
 /*
  data service middleware responsible for fetching the images
 */
@@ -35,6 +46,7 @@ const dataService = store => next => action => {
     /*
     In case we receive an action to send an API request, send the appropriate request
     */
+    const searchTerm = action.payload;
     request.get(`${flicker_base}&method=flickr.photos.search&text=${action.payload}&per_page=10&page=1`)
       .end((err, res) => {
         if (err) {
@@ -47,6 +59,8 @@ const dataService = store => next => action => {
         let data = [];
         if (res && res.status === 200 && res.body.photos) {
             data.push(...res.body.photos.photo.map(getFlickrPhotoUrl));
+            dispatchHistory(store, searchTerm, 'Flicker', data.length);
+
             //console.dir(dataFlicker);
             request.get(`${pixabay_base}&q=${action.payload}`)
             .end((err, res) => {
@@ -57,7 +71,14 @@ const dataService = store => next => action => {
                 })
               }
               if (res && res.status === 200 && res.text) {
-                  data.push(...res.body.hits.map(getPixabayPhotoUrl));
+                  const dataFromPixaboy = res.body.hits.map(getPixabayPhotoUrl);
+                  console.dir(dataFromPixaboy);
+                  data.push(...dataFromPixaboy);
+                  dispatchHistory(store, searchTerm, 'Pixaboy', dataFromPixaboy.length);
+                  next({
+                    type: REQUEST_IMAGES_DATA_RECEIVED,
+                    data
+                  })
               }
             });
         }
@@ -69,10 +90,7 @@ const dataService = store => next => action => {
         Once data is received, dispatch an action telling the application
         that data was received successfully, along with the parsed data
         */
-        next({
-          type: REQUEST_IMAGES_DATA_RECEIVED,
-          data
-        })
+
       })
     break
   /*

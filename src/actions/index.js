@@ -8,7 +8,7 @@ function requestImagesWithTerm(searchText){
   }
 }
 
-export  function requestImages() {
+export function requestImages() {
   return (dispatch, getState) => {
 
     var searchText = getState().searchText.term;
