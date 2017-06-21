@@ -5,7 +5,7 @@ import ImageList from '../components/ImageList';
 import '../styles/App.css';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as Actions from '../actions';
+import * as Actions from '../actions/ImagesActions';
 
 
 class App extends React.Component {
