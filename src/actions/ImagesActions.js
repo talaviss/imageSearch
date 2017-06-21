@@ -95,7 +95,7 @@ export function requestSetSearchText(searchText) {
 }
 
 export function requestImages() {
-    console.log('get pictures');
+    //console.log('get pictures');
     // Invert control!
     // Return a function that accepts `dispatch` so we can dispatch later.
     // Thunk middleware knows how to turn thunk async actions into actions.

@@ -1,11 +1,18 @@
 import React from 'react';
 
-const ImageItem = (image) => {
-  return (
-      <div className="image-item">
-         <img alt={image.gif.alt} src={image.gif.url} />
-      </div>
-  )
+class ImageItem extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        return (
+            <div className="image-item">
+
+                <img alt={this.props.image.alt}  src={this.props.image.url} onClick={() => this.props.onImageSelect(this.props.image)} />
+            </div>
+        );
+    }
 };
 
 export default ImageItem;

@@ -7,13 +7,13 @@
     "isomorphic-fetch": "^2.2.1",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
+    "react-modal": "^2.0.6",
     "react-redux": "^5.0.5",
     "redux": "^3.7.0",
-    "redux-thunk": "^2.2.0",
-    "superagent": "github:fiatjaf/superagent",
-    "whatwg-fetch": "^2.0.3"
+    "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
+    "eslint-config-airbnb": "^15.0.1",
     "react-scripts": "1.0.7"
   },
   "scripts": {

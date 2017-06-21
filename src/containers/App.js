@@ -2,11 +2,12 @@ import React from 'react';
 import SearchWidget from '../components/SearchWidget';
 import SearchHisotry from '../components/SearchHisotry';
 import ImageList from '../components/ImageList';
+import ImageModal from '../components/ImageModal';
 import '../styles/App.css';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as Actions from '../actions/ImagesActions';
-
+import * as ImagesActions from '../actions/ImagesActions';
+import * as ModalActions from '../actions/ModalActions';
 
 class App extends React.Component {
    constructor() {
@@ -23,7 +24,11 @@ class App extends React.Component {
           <div>
               <SearchWidget onSearchTextChange={this.props.actions.requestSetSearchText}
                            onClickSearch={this.props.actions.requestImages} />
-              <ImageList images={this.props.images} />
+              <ImageList images={this.props.images} onImageSelect={ selectedImage => this.props.modalActions.openModal({selectedImage}) } />
+              <ImageModal modalIsOpen={ this.props.modalIsOpen }
+                                selectedImage={ this.props.selectedImage }
+                                onRequestClose={ () => this.props.modalActions.closeModal() } />
+
               <SearchHisotry />
           </div>
         );
@@ -33,13 +38,16 @@ class App extends React.Component {
 function mapStateToProps(state) {
   return {
     images: state.images.data,
-    searchText: state.searchText
+    searchText: state.searchText,
+    modalIsOpen: state.modal.modalIsOpen,
+    selectedImage: state.modal.selectedImage
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(Actions, dispatch)
+    actions: bindActionCreators(ImagesActions, dispatch),
+    modalActions: bindActionCreators(ModalActions, dispatch)
   };
 }
 

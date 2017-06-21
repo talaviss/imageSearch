@@ -3,7 +3,7 @@ import ImageItem from './ImageItem';
 
 const ImageList = (props) => {
   const imageItems = props.images.map((image) => {
-    return <ImageItem key={image.id} gif={image} />
+    return <ImageItem key={image.id} image={image} onImageSelect={props.onImageSelect}/>
   });
 
   return (

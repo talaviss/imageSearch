@@ -3,29 +3,6 @@
   width: 90%;
 }
 
-.fa-heart {
-  color: #a94442;
-  font-size: 12px;
-  position: absolute;
-  right: 0;
-  top: 0;
-}
-
-.fa-heart:hover {
-  color: #ccc;
-}
-
-.fa-heart-o {
-  font-size: 12px;
-  position: absolute;
-  right: 0;
-  top: 0;
-}
-
-.fa-heart-o:hover {
-  color: #a94442;
-}
-
 .image-item {
   box-shadow: 2px 2px 4px 0 #ccc;
   box-sizing: border-box;
@@ -53,13 +30,11 @@
 
 }
 
-.modal {
-  left: 50%;
-  position: absolute;
-  text-align: center;
-  top: 50%;
-  transform: translateX(-50%) translateY(-50%);
+
+.image-modal img {
+  width: 80%;
 }
+
 
 .search input {
   display: inline-block;
@@ -105,7 +80,7 @@
 }
 
 @media only screen and (min-width: 1100px) {
-  .gif-list {
+  .image-list {
     -moz-column-count: 5;
     -webkit-column-count: 5;
     column-count: 5;
