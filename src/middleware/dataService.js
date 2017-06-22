@@ -1,4 +1,4 @@
-/*import request from 'superagent';
+/* import request from 'superagent';
 import {REQUEST_IMAGES, REQUEST_IMAGES_DATA_ERROR, REQUEST_IMAGES_DATA_RECEIVED }  from '../actions/ActionTypes';
 
 const key = '9685535eedbb6ad9e9ff36630cd62098';
@@ -41,13 +41,13 @@ const dataService = store => next => action => {
   /*
   Pass all actions through by default
   */
-  /*next(action)
+/* next(action)
   switch (action.type) {
   case REQUEST_IMAGES:
     /*
     In case we receive an action to send an API request, send the appropriate request
     */
-  /*  const searchTerm = action.payload;
+/*  const searchTerm = action.payload;
     request.get(`${flicker_base}&method=flickr.photos.search&text=${action.payload}&per_page=10&page=1`)
       .end((err, res) => {
         if (err) {
@@ -97,7 +97,7 @@ const dataService = store => next => action => {
   /*
   Do nothing if the action does not interest us
   */
-  /*default:
+/* default:
     break
   }
 };

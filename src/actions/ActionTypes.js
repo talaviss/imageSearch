@@ -5,3 +5,6 @@ export const REQUEST_SET_TERM = 'REQUEST_SET_TERM';
 
 export const OPEN_MODAL = 'OPEN_MODAL';
 export const CLOSE_MODAL = 'CLOSE_MODAL';
+
+export const HISTORY_DATA = 'HISTORY_DATA';
+export const HISTORY_CLEAR = 'HISTORY_CLEAR';

@@ -5,6 +5,8 @@
   "dependencies": {
     "es6-promise": "^4.1.0",
     "isomorphic-fetch": "^2.2.1",
+    "js-uuid": "0.0.6",
+    "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-modal": "^2.0.6",
@@ -13,13 +15,22 @@
     "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
+    "eslint": "^4.0.0",
     "eslint-config-airbnb": "^15.0.1",
+    "eslint-friendly-formatter": "^3.0.0",
+    "eslint-loader": "^1.8.0",
+    "eslint-plugin-import": "^2.3.0",
+    "eslint-plugin-jsx-a11y": "^5.0.3",
+    "eslint-plugin-react": "^7.1.0",
     "react-scripts": "1.0.7"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "elint": "eslint ./src — ext .js — ext .jsx — cache --fix || true",
+    "elint:table": "eslint ./src — ext .js — ext .jsx — cache — format table || true",
+    "elint:summary": "eslint ./src — ext .js — ext .jsx — cache — format 'node_modules/eslint-friendly-formatter’ || true"
   }
 }

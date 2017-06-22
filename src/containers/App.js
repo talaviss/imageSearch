@@ -1,46 +1,47 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import SearchWidget from '../components/SearchWidget';
-import SearchHisotry from '../components/SearchHisotry';
+import HistoryWidget from '../components/HistoryWidget';
 import ImageList from '../components/ImageList';
 import ImageModal from '../components/ImageModal';
 import '../styles/App.css';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import * as ImagesActions from '../actions/ImagesActions';
 import * as ModalActions from '../actions/ModalActions';
 
 class App extends React.Component {
-   constructor() {
-      super();
-      this.handleSearch = this.handleSearch.bind(this);
-    }
-
-    handleSearch(searchText) {
-        searchText = searchText.replace(/\s/g, '+');
-    }
-
-    render() {
-        return (
-          <div>
-              <SearchWidget onSearchTextChange={this.props.actions.requestSetSearchText}
-                           onClickSearch={this.props.actions.requestImages} />
-              <ImageList images={this.props.images} onImageSelect={ selectedImage => this.props.modalActions.openModal({selectedImage}) } />
-              <ImageModal modalIsOpen={ this.props.modalIsOpen }
-                                selectedImage={ this.props.selectedImage }
-                                onRequestClose={ () => this.props.modalActions.closeModal() } />
-
-              <SearchHisotry />
-          </div>
-        );
-    }
+  render() {
+    return (
+      <div>
+        <SearchWidget
+          searchText={this.props.searchText.term}
+          onSearchTextChange={this.props.actions.requestSetSearchText}
+          onClickSearch={this.props.actions.requestImages}
+        />
+        <HistoryWidget
+          history={this.props.history}
+          onHistoryRowClick={this.props.actions.requestImagesWithTerm}
+          onClearHistoryClick={this.props.actions.clearHistory}
+        />
+        <ImageList images={this.props.images} onImageSelect={selectedImage => this.props.modalActions.openModal({ selectedImage })} />
+        <ImageModal
+          modalIsOpen={this.props.modalIsOpen}
+          selectedImage={this.props.selectedImage}
+          onRequestClose={() => this.props.modalActions.closeModal()}
+        />
+      </div>
+    );
+  }
 }
 
 function mapStateToProps(state) {
+  console.dir(state);
   return {
     images: state.images.data,
     searchText: state.searchText,
     modalIsOpen: state.modal.modalIsOpen,
-    selectedImage: state.modal.selectedImage
+    selectedImage: state.modal.selectedImage,
+    history: state.history.data
   };
 }
 
