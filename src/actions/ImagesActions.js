@@ -1,6 +1,8 @@
 import uuid from 'js-uuid';
 import { HISTORY_DATA, HISTORY_CLEAR, REQUEST_IMAGES_DATA_ERROR, REQUEST_IMAGES_DATA_RECEIVED, REQUEST_SET_TERM } from './ActionTypes';
 
+const moment = require('moment');
+
 require('es6-promise').polyfill();
 require('isomorphic-fetch');
 
@@ -27,20 +29,15 @@ function getFlickrPhotoUrl(image, i) {
   };
 }
 
-function getDateTime() {
-  const d = new Date();
-  const dformat = `${d.getDate()}/${d.getMonth()}/${d.getFullYear().toString().substr(-2)} ${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`;
-  return dformat;
-}
-
 function logToHistory(searchTerm, serviceName, resultsCnt) {
+  const now = moment(new Date()).format('DD-MM-YY hh:mm:ss');
   return {
     type: HISTORY_DATA,
     payload: {
       id: uuid.v4(),
       term: searchTerm,
       service: serviceName,
-      time: getDateTime(),
+      time: now,
       count: resultsCnt
     }
   };

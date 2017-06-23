@@ -3,7 +3,7 @@ import React from 'react';
 const HistoryItem = (props) => {
 
   return (
-    <tr onClick={e => props.onRowClick(props.data.term)}>
+    <tr className="historyRow" onClick={e => props.onRowClick(props.data.term)}>
       <td>
         { props.data.term }
       </td>

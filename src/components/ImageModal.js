@@ -40,7 +40,6 @@ const ImageModal = (props) => {
 };
 
 ImageModal.propTypes = {
-  selectedImage: PropTypes.object.isRequired,
   modalIsOpen: PropTypes.bool.isRequired,
   onRequestClose: PropTypes.func.isRequired
 };

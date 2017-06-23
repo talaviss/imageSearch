@@ -35,7 +35,7 @@ class App extends React.Component {
 }
 
 function mapStateToProps(state) {
-  console.dir(state);
+  //onsole.dir(state);
   return {
     images: state.images.data,
     searchText: state.searchText,
