@@ -98,49 +98,94 @@
 /**
 history table
 **/
+
+section{
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-top: 15px;
+  float: right;
+
+}
 .tbl-header h4{
   font-size: 18px;
-  color: black;
+  color: white;
   font-weight: 200;
-  margin-left: 13PX;
+  margin-left: 5PX;
 }
-.clearButton {
-  margin-left: 5px;
-  margin-bottom: 5px;
+
+.pretty-table
+{
+  padding: 0;
+  margin: 0;
+  border-collapse: collapse;
+  border: 1px solid #333;
+  font-family: "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+  font-size: 0.9em;
+  color: #000;
+  background: #bcd0e4  top left repeat-x;
 }
-table{
-  width:100%;
-  table-layout: fixed;
+
+.pretty-table caption
+{
+  caption-side: bottom;
+  font-size: 0.9em;
+  font-style: italic;
+  text-align: right;
+  padding: 0.5em 0;
 }
-.tbl-header{
-  background-color: rgba(255,255,255,0.3);
-  width:300px;
-  float:right;
-  margin-left: 15px;
-  margin-top: 6px;
- }
-.tbl-content{
-  height:300px;
-  overflow-x:auto;
-  margin-top: 0px;
-  border: 1px solid rgba(255,255,255,0.3);
-}
-th{
-  padding: 20px 15px;
+
+.pretty-table th, .pretty-table td
+{
+  border: 1px dotted #666;
+  padding: 0.5em;
   text-align: left;
-  font-weight: 500;
-  font-size: 12px;
-  color: blue
+  color: #632a39;
 }
-td{
-  padding: 15px;
-  text-align: left;
-  vertical-align:middle;
-  font-weight: 300;
-  font-size: 12px;
+
+.pretty-table th[scope=col]
+{
   color: #fff;
-  border-bottom: solid 1px rgba(255,255,255,0.1);
+  background-color: #8fadcc;
+  text-transform: uppercase;
+  font-size: 0.9em;
+  border-bottom: 2px solid #333;
+  border-right: 1px dotted #666;
 }
+
+.pretty-table th+th[scope=col]
+{
+  color: #fff;
+  background-color: #8fadcc;
+  border-right: 1px dotted #666;
+}
+
+.pretty-table th[scope=row]
+{
+  background-color: #b8cfe5;
+  border-right: 2px solid #333;
+}
+
+.pretty-table tr.alt th, .pretty-table tr.alt td
+{
+  color: #2a4763;
+}
+
+.pretty-table tr:hover th[scope=row], .pretty-table tr:hover td
+{
+  background-color: #2a4763;
+  color: #fff;
+  cursor: pointer;
+}
+
+.pretty-table td {
+  cursor: pointer;
+}
+
+.clearButton {
+  margin-left: 0px;
+  margin-top: 5px;
+}
+
 .historyRow {
   cursor: pointer;
 }
@@ -154,9 +199,7 @@ body{
   background: linear-gradient(to right, #25c481, #25b7c4);
   font-family: 'Roboto', sans-serif;
 }
-section{
-  margin: 50px;
-}
+
 
 
 /* for custom scrollbar for webkit browser*/

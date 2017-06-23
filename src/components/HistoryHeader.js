@@ -3,16 +3,16 @@ import React from 'react';
 const HistoryHeader = () => (
   <thead>
     <tr>
-      <th>
+      <th scope="col">
         Term
       </th>
-      <th>
+      <th scope="col">
         Service
       </th>
-      <th>
-        Time
+      <th scope="col">
+        Time of search
       </th>
-      <th>
+      <th scope="col">
          Count
       </th>
     </tr>

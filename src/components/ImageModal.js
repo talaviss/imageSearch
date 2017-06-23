@@ -9,7 +9,8 @@ const customStyles = {
     right: 'auto',
     bottom: 'auto',
     marginRight: '-50%',
-    transform: 'translate(-50%, -50%)'
+    transform: 'translate(-50%, -50%)',
+    background: 'linear-gradient(to right, #25c481, #25b7c4)'
   }
 };
 
