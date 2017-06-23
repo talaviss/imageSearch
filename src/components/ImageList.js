@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import ImageItem from './ImageItem';
 
 const ImageList = (props) => {
+  console.log(props);
   const imageItems = props.images.map(image => <ImageItem key={image.id} image={image} onImageSelect={props.onImageSelect} />);
 
   return (

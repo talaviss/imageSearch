@@ -31,7 +31,7 @@ const ImageModal = (props) => {
 
       <div className="image-modal">
         <img src={props.selectedImage.url} alt={props.selectedImage.alt} />
-        <p><strong>Source:</strong> {props.selectedImage.url}</p>
+        <p className="firstData"><strong>Source:</strong> {props.selectedImage.url}</p>
         <p><strong>Id:</strong> { props.selectedImage.id }</p>
 
         <button onClick={() => props.onRequestClose()}>close</button>

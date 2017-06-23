@@ -30,7 +30,7 @@ function getFlickrPhotoUrl(image, i) {
 }
 
 function logToHistory(searchTerm, serviceName, resultsCnt) {
-  const now = moment(new Date()).format('DD-MM-YY hh:mm:ss');
+  const now = moment(new Date()).format('DD-MM-YY HH:mm:ss');
   return {
     type: HISTORY_DATA,
     payload: {
@@ -122,6 +122,9 @@ export function requestImages() {
   // Thunk middleware knows how to turn thunk async actions into actions.
   return function inner(dispatch, getState) {
     const searchText = getState().searchText.term;
+    if (!searchText) {
+      return Promise.resolve([]);
+    }
     return performImageSearch(dispatch, searchText);
   };
 }
