@@ -18,7 +18,7 @@ class SearchWidget extends React.Component {
   render() {
     return (
       <div className="search">
-        <input type="text"  value={this.props.searchText} placeholder="Enter text to search images" onChange={event => this.onSearchTermChange(event.target.value)} />
+        <input type="text" value={this.props.searchText} placeholder="Enter text to search images" onChange={event => this.onSearchTermChange(event.target.value)} />
         <button className="btn btn-primary" title="Perform search" onClick={e => this.handleClick(e)}>Search</button>
       </div>
     );

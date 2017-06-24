@@ -1,5 +1,5 @@
 import uuid from 'js-uuid';
-import { HISTORY_DATA, HISTORY_CLEAR } from '../actiontypes/HistoryActionTypes';
+import { HISTORY_DATA } from '../actiontypes/HistoryActionTypes';
 import { REQUEST_IMAGES_DATA_ERROR, REQUEST_IMAGES_DATA_RECEIVED, REQUEST_SET_TERM } from '../actiontypes/ImagesActionTypes';
 
 const moment = require('moment');
@@ -107,13 +107,6 @@ export function requestSetSearchText(searchText) {
   return {
     type: REQUEST_SET_TERM,
     payload: searchText
-  };
-}
-
-export function clearHistory() {
-  return {
-    type: HISTORY_CLEAR,
-    payload: []
   };
 }
 

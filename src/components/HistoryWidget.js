@@ -7,6 +7,7 @@ import HistoryList from './HistoryList';
 
 class HistoryWidget extends React.Component {
   render() {
+    console.dir(this.props);
     return (
       <section>
         <div className="tbl-header">

@@ -38,6 +38,7 @@ module.exports = {
       "always"
     ],
     /* Advanced Rules*/
+    "max-len": "off",
     "no-unused-expressions": "warn",
     "no-useless-concat": "warn",
     "block-scoped-var": "error",

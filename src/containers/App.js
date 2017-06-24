@@ -9,6 +9,7 @@ import Footer from '../components/Footer';
 import '../styles/App.css';
 import * as ImagesActions from '../actions/ImagesActions';
 import * as ModalActions from '../actions/ModalActions';
+import * as HistoryActions from '../actions/HistoryActions';
 
 class App extends React.Component {
   render() {
@@ -22,7 +23,7 @@ class App extends React.Component {
         <HistoryWidget
           history={this.props.history}
           onHistoryRowClick={this.props.actions.requestImagesWithTerm}
-          onClearHistoryClick={this.props.actions.clearHistory}
+          onClearHistoryClick={this.props.historyActions.clearHistory}
         />
         <ImageList images={this.props.images} onImageSelect={selectedImage => this.props.modalActions.openModal({ selectedImage })} />
         <ImageModal
@@ -37,7 +38,6 @@ class App extends React.Component {
 }
 
 function mapStateToProps(state) {
-  //onsole.dir(state);
   return {
     images: state.images.data,
     searchText: state.searchText,
@@ -50,7 +50,8 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     actions: bindActionCreators(ImagesActions, dispatch),
-    modalActions: bindActionCreators(ModalActions, dispatch)
+    modalActions: bindActionCreators(ModalActions, dispatch),
+    historyActions: bindActionCreators(HistoryActions, dispatch)
   };
 }
 
