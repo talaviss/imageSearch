@@ -4,20 +4,32 @@
 import React from 'react';
 import HistoryHeader from './HistoryHeader';
 import HistoryList from './HistoryList';
+import reactCSS from 'reactcss'
+
 
 class HistoryWidget extends React.Component {
   render() {
-    console.dir(this.props);
+    //Define styles and attach them to the JSX via inline styles:
+    const styles = reactCSS({
+      'default': {
+        header: {
+          fontSize: '18px',
+          color: 'white',
+          fontWeight: '200',
+          marginLeft: '5px',
+        },
+      }
+    }, this.props)
     return (
       <section>
-        <div className="tbl-header">
+        <div style={styles.header}>
           <h4>History Searches:</h4>
         </div>
         <table className="pretty-table">
           <HistoryHeader />
           <HistoryList history={this.props.history} onRowClick={this.props.onHistoryRowClick} />
         </table>
-        <button className="btn-primary  clearButton btn-sm" title="Clear" onClick={e => this.props.onClearHistoryClick(e)}>Clear</button>
+        <button className="btn-primary clearButton btn-sm" title="Clear" onClick={e => this.props.onClearHistoryClick(e)}>Clear</button>
       </section>
     );
   }

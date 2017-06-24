@@ -2,6 +2,7 @@ import React from 'react';
 import Modal from 'react-modal';
 import PropTypes from 'prop-types';
 
+
 const customStyles = {
   content: {
     top: '50%',
@@ -31,10 +32,9 @@ const ImageModal = (props) => {
 
       <div className="image-modal">
         <img src={props.selectedImage.url} alt={props.selectedImage.alt} />
-        <p className="firstData"><strong>Source:</strong> {props.selectedImage.url}</p>
+        <p className="firstData"><strong>Url:</strong> {props.selectedImage.url}</p>
         <p><strong>Id:</strong> { props.selectedImage.id }</p>
-
-        <button onClick={() => props.onRequestClose()}>close</button>
+        <button className="btn-primary btn-sm" onClick={() => props.onRequestClose()}>close</button>
       </div>
     </Modal>
   );
