@@ -5,6 +5,7 @@ import SearchWidget from '../components/SearchWidget';
 import HistoryWidget from '../components/HistoryWidget';
 import ImageList from '../components/ImageList';
 import ImageModal from '../components/ImageModal';
+import Footer from '../components/Footer';
 import '../styles/App.css';
 import * as ImagesActions from '../actions/ImagesActions';
 import * as ModalActions from '../actions/ModalActions';
@@ -29,6 +30,7 @@ class App extends React.Component {
           selectedImage={this.props.selectedImage}
           onRequestClose={() => this.props.modalActions.closeModal()}
         />
+        <Footer />
       </div>
     );
   }

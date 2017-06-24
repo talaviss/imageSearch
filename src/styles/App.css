@@ -3,6 +3,17 @@
   width: 90%;
 }
 
+.footer {
+  borderTop: 1px solid #E7E7E7;
+  textAlign: center;
+  padding: 20px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: 60px;
+  width: 100%;
+}
+
 .image-item {
   box-shadow: 2px 2px 4px 0 #ccc;
   box-sizing: border-box;
@@ -195,6 +206,9 @@ section {
   cursor: pointer;
 }
 
+.fa {
+  margin-right: 10px;
+}
 
 /* demo styles */
 
