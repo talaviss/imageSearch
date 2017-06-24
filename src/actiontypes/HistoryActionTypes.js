@@ -1,0 +1,2 @@
+export const HISTORY_DATA = 'HISTORY_DATA';
+export const HISTORY_CLEAR = 'HISTORY_CLEAR';

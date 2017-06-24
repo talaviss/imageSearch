@@ -1,4 +1,4 @@
-import { REQUEST_IMAGES_DATA_RECEIVED } from '../actions/ActionTypes';
+import { REQUEST_IMAGES_DATA_RECEIVED } from '../actiontypes/ImagesActionTypes';
 
 const initialState = {
   data: []

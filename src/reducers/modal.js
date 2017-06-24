@@ -1,4 +1,4 @@
-import { OPEN_MODAL, CLOSE_MODAL } from '../actions/ActionTypes';
+import { OPEN_MODAL, CLOSE_MODAL } from '../actiontypes/ModalActionTypes';
 
 const initialState = {
   selectedImage: null,

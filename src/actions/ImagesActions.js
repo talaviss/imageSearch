@@ -1,5 +1,6 @@
 import uuid from 'js-uuid';
-import { HISTORY_DATA, HISTORY_CLEAR, REQUEST_IMAGES_DATA_ERROR, REQUEST_IMAGES_DATA_RECEIVED, REQUEST_SET_TERM } from './ActionTypes';
+import { HISTORY_DATA, HISTORY_CLEAR } from '../actiontypes/HistoryActionTypes';
+import { REQUEST_IMAGES_DATA_ERROR, REQUEST_IMAGES_DATA_RECEIVED, REQUEST_SET_TERM } from '../actiontypes/ImagesActionTypes';
 
 const moment = require('moment');
 

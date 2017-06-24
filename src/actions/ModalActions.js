@@ -1,8 +1,6 @@
-import { OPEN_MODAL, CLOSE_MODAL } from './ActionTypes';
-
+import { OPEN_MODAL, CLOSE_MODAL } from '../actiontypes/ModalActionTypes';
 
 export function openModal(image) {
-  console.log('open');
   return {
     type: OPEN_MODAL,
     image

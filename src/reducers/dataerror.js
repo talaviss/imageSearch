@@ -1,4 +1,4 @@
-import { REQUEST_IMAGES_DATA_ERROR } from '../actions/ActionTypes';
+import { REQUEST_IMAGES_DATA_ERROR } from '../actiontypes/ImagesActionTypes';
 
 const initialState = {
   error: null

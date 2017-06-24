@@ -1,4 +1,4 @@
-import { REQUEST_SET_TERM } from '../actions/ActionTypes';
+import { REQUEST_SET_TERM } from '../actiontypes/ImagesActionTypes';
 
 const initialState = {
   term: ''

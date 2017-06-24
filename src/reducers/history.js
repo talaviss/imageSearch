@@ -1,4 +1,4 @@
-import { HISTORY_DATA, HISTORY_CLEAR } from '../actions/ActionTypes';
+import { HISTORY_DATA, HISTORY_CLEAR } from '../actiontypes/HistoryActionTypes';
 
 const initialState = {
   data: []
