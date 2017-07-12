@@ -1,5 +1,4 @@
 # General Information
-This project was created as a homework from Alcide and as a part of the recruiting process from Alcide Ltd.
 This project purpose is to fetch images from:
 1. Pixabay API
 2. Flicker API
